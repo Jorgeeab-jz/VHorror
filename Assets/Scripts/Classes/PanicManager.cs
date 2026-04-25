@@ -2,7 +2,7 @@ using System;
 using VContainer.Unity;
 using UnityEngine;
 
-public class PanicManager : IPanicManager, ITickable
+public class PanicManager : IPanicManager, ITickable, IStartable
 {
     private const float BatteryDrainRate = 0.05f; 
     private const float PanicIncreaseRate = 0.02f; 
@@ -32,7 +32,15 @@ public class PanicManager : IPanicManager, ITickable
 
     public void AddBattery(float amount)
     {
-        BatteryPercent = Mathf.Clamp01(BatteryPercent + amount);
+        BatteryPercent += amount;
+
+        if(BatteryPercent >= 1f)
+        {
+            BatteryPercent = 1f;
+        }
+
+        Debug.Log($"Battery added! Current Battery: {BatteryPercent}");
+
         OnStateChanged?.Invoke();
     }
 
@@ -56,5 +64,10 @@ public class PanicManager : IPanicManager, ITickable
         }
         
         OnStateChanged?.Invoke();
+    }
+
+    public void Start()
+    {
+        Debug.Log("PanicManager started. Initial Battery: " + BatteryPercent + ", Initial Panic: " + PanicPercent);
     }
 }
