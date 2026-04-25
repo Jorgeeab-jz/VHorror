@@ -19,7 +19,6 @@ namespace VHorror.Scripts.MonoBehaviors
 
         private void Start()
         {
-            // Initialize bars with 1.0 as max value (0-1 range)
             if (batteryBar != null) batteryBar.Initialize(1f);
             if (panicBar != null) panicBar.Initialize(1f);
             
@@ -55,8 +54,6 @@ namespace VHorror.Scripts.MonoBehaviors
             {
                 panicBar.UpdateBar(_panicManager.PanicPercent);
             }
-
-            Debug.Log($"Panic UI Updated - Battery: {_panicManager.BatteryPercent}%, Panic: {_panicManager.PanicPercent}");
         }
     }
 }

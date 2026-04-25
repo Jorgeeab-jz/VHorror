@@ -897,6 +897,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5923163621794210673, guid: be6bb7f6283881d4f89d265b35d2349f, type: 3}
+      propertyPath: simpleBar._healAnim
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5923163621794210673, guid: be6bb7f6283881d4f89d265b35d2349f, type: 3}
+      propertyPath: simpleBar._damageAnim
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5923163621794210673, guid: be6bb7f6283881d4f89d265b35d2349f, type: 3}
+      propertyPath: simpleBar._useGhostBar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5923163621794210673, guid: be6bb7f6283881d4f89d265b35d2349f, type: 3}
+      propertyPath: simpleBar._adaptiveColor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5923163621794210673, guid: be6bb7f6283881d4f89d265b35d2349f, type: 3}
       propertyPath: simpleBar._barPrimaryColor.b
       value: 0
       objectReference: {fileID: 0}
@@ -907,6 +923,18 @@ PrefabInstance:
     - target: {fileID: 5923163621794210673, guid: be6bb7f6283881d4f89d265b35d2349f, type: 3}
       propertyPath: simpleBar._barPrimaryColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5923163621794210673, guid: be6bb7f6283881d4f89d265b35d2349f, type: 3}
+      propertyPath: simpleBar._barAdaptiveColor.b
+      value: 0.5549085
+      objectReference: {fileID: 0}
+    - target: {fileID: 5923163621794210673, guid: be6bb7f6283881d4f89d265b35d2349f, type: 3}
+      propertyPath: simpleBar._barAdaptiveColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5923163621794210673, guid: be6bb7f6283881d4f89d265b35d2349f, type: 3}
+      propertyPath: simpleBar._barAdaptiveColor.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5923163621794210673, guid: be6bb7f6283881d4f89d265b35d2349f, type: 3}
       propertyPath: simpleBar._ghostBarDamageColor.b
@@ -2029,8 +2057,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 1115684556}
   - {fileID: 1818559197}
+  - {fileID: 2083415126}
   - {fileID: 911211368}
   - {fileID: 874849446}
   - {fileID: 1971393017}
   - {fileID: 1496838876}
-  - {fileID: 2083415126}
