@@ -1,6 +1,7 @@
 using System;
 using VContainer.Unity;
 using UnityEngine;
+using VContainer;
 
 public class PanicManager : IPanicManager, ITickable, IStartable
 {
@@ -11,6 +12,14 @@ public class PanicManager : IPanicManager, ITickable, IStartable
     public float BatteryPercent { get; private set; } = 1f;
     public float PanicPercent { get; private set; } = 0f;
     public bool IsFlashlightOn { get; private set; } = false;
+    
+    private readonly IGameStateManager _gameStateManager;
+
+    [Inject]
+    public PanicManager(IGameStateManager gameStateManager)
+    {
+        _gameStateManager = gameStateManager;
+    }
 
     public event Action OnStateChanged;
 
@@ -62,7 +71,13 @@ public class PanicManager : IPanicManager, ITickable, IStartable
             // Panic increases when light is off
             PanicPercent = Mathf.Min(1f, PanicPercent + PanicIncreaseRate * Time.deltaTime);
         }
-        
+
+        if (PanicPercent >= 1.0f && _gameStateManager.CurrentState == GameState.Playing)
+        {
+            Debug.Log("Panic reached 100%! Player killed.");
+            _gameStateManager.ChangeState(GameState.PlayerKilled);
+        }
+
         OnStateChanged?.Invoke();
     }
 
