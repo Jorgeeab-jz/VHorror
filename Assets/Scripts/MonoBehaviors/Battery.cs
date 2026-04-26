@@ -2,17 +2,19 @@ using UnityEngine;
 using VContainer;
 using VHorror.Scripts.MonoBehaviors;
 
-public class Battery : MonoBehaviour
+namespace VHorror.Scripts.MonoBehaviors
 {
-    [SerializeField] private float refillAmount = 0.2f;
-
-
-    private void OnTriggerEnter(Collider other)
+    public class Battery : MonoBehaviour
     {
-        var flashlightController = other.GetComponent<FlashlightController>();
-        
-        flashlightController?.OnPickBattery(refillAmount);
+        [SerializeField] private float refillAmount = 0.2f;
 
-        Destroy(gameObject);
+        private void OnTriggerEnter(Collider other)
+        {
+            var flashlightController = other.GetComponent<FlashlightController>();
+
+            flashlightController?.OnPickBattery(refillAmount);
+
+            Destroy(gameObject);
+        }
     }
 }

@@ -19,41 +19,30 @@ namespace VHorror.Scripts.MonoBehaviors
 
         private void Start()
         {
-            if (batteryBar != null) batteryBar.Initialize(1f);
-            if (panicBar != null) panicBar.Initialize(1f);
+            batteryBar.Initialize(1f);
+            panicBar.Initialize(1f);
 
             UpdateUI();
         }
 
         private void OnEnable()
         {
-            if (_panicManager != null)
-            {
-                _panicManager.OnStateChanged += UpdateUI;
-            }
+            _panicManager.OnStateChanged += UpdateUI;
         }
 
         private void OnDisable()
         {
-            if (_panicManager != null)
-            {
-                _panicManager.OnStateChanged -= UpdateUI;
-            }
+            _panicManager.OnStateChanged -= UpdateUI;
         }
 
         private void UpdateUI()
         {
-            if (_panicManager == null) return;
 
-            if (batteryBar != null)
-            {
-                batteryBar.UpdateBar(_panicManager.BatteryPercent);
-            }
+            batteryBar.UpdateBar(_panicManager.BatteryPercent);
 
-            if (panicBar != null)
-            {
-                panicBar.UpdateBar(_panicManager.PanicPercent);
-            }
+
+            panicBar.UpdateBar(_panicManager.PanicPercent);
+
         }
     }
 }

@@ -24,10 +24,8 @@ namespace VHorror.Scripts.MonoBehaviors
 
         private void OnEnable()
         {
-            if (_panicManager != null)
-            {
-                _panicManager.OnStateChanged += UpdateFlashlight;
-            }
+
+            _panicManager.OnStateChanged += UpdateFlashlight;
 
             toggleFlashlightAction.action.performed += OnFlashlighToggle;
             toggleFlashlightAction.action.Enable();
@@ -35,10 +33,8 @@ namespace VHorror.Scripts.MonoBehaviors
 
         private void OnDisable()
         {
-            if (_panicManager != null)
-            {
-                _panicManager.OnStateChanged -= UpdateFlashlight;
-            }
+            _panicManager.OnStateChanged -= UpdateFlashlight;
+
 
             toggleFlashlightAction.action.performed -= OnFlashlighToggle;
             toggleFlashlightAction.action.Disable();
@@ -46,10 +42,7 @@ namespace VHorror.Scripts.MonoBehaviors
 
         private void UpdateFlashlight()
         {
-            if (flashlight != null && _panicManager != null)
-            {
-                flashlight.enabled = _panicManager.IsFlashlightOn;
-            }
+            flashlight.enabled = _panicManager.IsFlashlightOn;
         }
 
         public void OnPickBattery(float amount)

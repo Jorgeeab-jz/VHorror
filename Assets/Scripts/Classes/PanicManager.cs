@@ -85,4 +85,12 @@ public class PanicManager : IPanicManager, ITickable, IStartable
     {
         Debug.Log("PanicManager started. Initial Battery: " + BatteryPercent + ", Initial Panic: " + PanicPercent);
     }
+
+    public void Reset()
+    {
+        BatteryPercent = 1f;
+        PanicPercent = 0f;
+        IsFlashlightOn = false;
+        OnStateChanged?.Invoke();
+    }
 }

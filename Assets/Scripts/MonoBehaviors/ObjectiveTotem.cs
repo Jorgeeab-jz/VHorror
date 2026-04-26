@@ -15,11 +15,7 @@ namespace VHorror.Scripts.MonoBehaviors
 
         private void OnTriggerEnter(Collider other)
         {
-            // Check if the collider belongs to the player (proxy: FlashlightController)
-            if (other.GetComponent<FlashlightController>() != null)
-            {
-                PickUp();
-            }
+            PickUp();
         }
 
         private void PickUp()

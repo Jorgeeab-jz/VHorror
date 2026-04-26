@@ -11,4 +11,5 @@ public interface IPanicManager
     void SetFlashlightActive(bool active);
     void ToggleFlashlight();
     void AddBattery(float amount);
+    void Reset();
 }

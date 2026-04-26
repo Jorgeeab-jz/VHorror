@@ -34,4 +34,10 @@ public class InventoryManager : IInventoryManager
         Debug.Log("3 Totems collected! Ending game...");
         _gameStateManager.ChangeState(GameState.Escaped);
     }
+
+    public void Reset()
+    {
+        _totemsCollected = 0;
+        OnTotemsCountChanged?.Invoke(_totemsCollected);
+    }
 }

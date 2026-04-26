@@ -4,13 +4,15 @@ using VContainer;
 using VContainer.Unity;
 using VHorror.Scripts.MonoBehaviors;
 
-public class TotemSpawner : IStartable
+public class TotemSpawner : ITotemSpawner, IStartable
 {
     private readonly IObjectResolver _resolver;
     private readonly ObjectiveTotem _totemPrefab;
     private readonly Transform[] _spawnPositions;
     private readonly int _minTotems;
     private readonly int _maxTotems;
+
+    private List<GameObject> _spawnedTotems = new List<GameObject>();
 
     public TotemSpawner(
         IObjectResolver resolver, 
@@ -29,6 +31,24 @@ public class TotemSpawner : IStartable
     public void Start()
     {
         SpawnTotems();
+    }
+
+    public void Respawn()
+    {
+        ClearTotems();
+        SpawnTotems();
+    }
+
+    private void ClearTotems()
+    {
+        foreach (var totem in _spawnedTotems)
+        {
+            if (totem != null)
+            {
+                Object.Destroy(totem);
+            }
+        }
+        _spawnedTotems.Clear();
     }
 
     private void SpawnTotems()
@@ -51,7 +71,8 @@ public class TotemSpawner : IStartable
             availablePositions.RemoveAt(randomIndex);
 
             // Instantiate using VContainer
-            _resolver.Instantiate(_totemPrefab, spawnPoint.position, spawnPoint.rotation);
+            var totem = _resolver.Instantiate(_totemPrefab, spawnPoint.position, spawnPoint.rotation);
+            _spawnedTotems.Add(totem.gameObject);
         }
     }
 }
