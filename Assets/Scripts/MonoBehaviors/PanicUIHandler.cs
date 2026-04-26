@@ -21,7 +21,7 @@ namespace VHorror.Scripts.MonoBehaviors
         {
             if (batteryBar != null) batteryBar.Initialize(1f);
             if (panicBar != null) panicBar.Initialize(1f);
-            
+
             UpdateUI();
         }
 
@@ -49,7 +49,7 @@ namespace VHorror.Scripts.MonoBehaviors
             {
                 batteryBar.UpdateBar(_panicManager.BatteryPercent);
             }
-            
+
             if (panicBar != null)
             {
                 panicBar.UpdateBar(_panicManager.PanicPercent);

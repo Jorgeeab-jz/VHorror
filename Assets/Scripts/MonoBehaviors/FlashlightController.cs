@@ -55,7 +55,7 @@ namespace VHorror.Scripts.MonoBehaviors
         public void OnPickBattery(float amount)
         {
             _panicManager.AddBattery(amount);
-            Debug.Log($"Battery collected! Refilled {amount}"); 
+            Debug.Log($"Battery collected! Refilled {amount}");
         }
 
         private void OnFlashlighToggle(InputAction.CallbackContext context)

@@ -13,8 +13,6 @@ public class Battery : MonoBehaviour
         
         flashlightController?.OnPickBattery(refillAmount);
 
-        Debug.Log($"Battery picked up by {other.gameObject.name}"); 
-
         Destroy(gameObject);
     }
 }
